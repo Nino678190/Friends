@@ -3,7 +3,20 @@
     src: url(Noto-Sans/NotoSans-Bold.ttf)
 }
 
-/*Primär Farbe blau*/
+/*Primär Farbe #06408d*/
+@media (prefers-color-scheme:light){
+    body{
+        background-color: white;
+        color: black;
+    }
+}
+
+@media (prefers-color-scheme:dark){
+    body{
+        background-color: black;
+        color: white;
+    }
+}
 
 body {
     margin: 0;

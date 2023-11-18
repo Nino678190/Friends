@@ -1,3 +1,15 @@
+@font-face {
+    font-family: "NotoSans";
+    src: url(Noto-Sans/NotoSans-Bold.ttf)
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "NotoSans";
+    position: relative;
+}
+
 .login{
     display: grid;
     grid-template-columns: repeat(2, 1fr);

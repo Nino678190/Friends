@@ -84,7 +84,6 @@ function project_registration(){
 }
 
 function queryuser(userid){
-    
     fetch("http://192.168.22.216:8080/queryuser", 
         {method: "POST",
         headers: {"content-type": "application/json"},
@@ -95,9 +94,100 @@ function queryuser(userid){
                 console.log(user)
                 let pronouns = user.pronouns ?? "N/A"
                 var tr = document.createElement("tr")
-                tr.innerHTML = "<td>"+user.username+"</td><td>"+pronouns+"</td><td>"+user.interests+"</td>"
+                var button = document.createElement("button")
+                var buttonjs = "Button"+user.username
+                tr.innerHTML = "<td>"+user.username+"</td><td>"+pronouns+"</td><td>"+user.interests+"</td><td>"+"<button id="+buttonjs+">Freundschaftsanfrage</button>"+"</td>"
                 tabellenbody.appendChild(tr)
+                document.getElementById(buttonjs)
+                button = document.getElementById(buttonjs)
+                button.onclick = function (){
+                    console.log(user.username)
+                    fetch("http://192.168.22.216:8080/queryuser",
+                    {method: "POST",
+                    headers: {"content-type": "application/json"},
+                    body: JSON.stringify({"id": userid})}).then(function(res){
+                        window.alert("Freundschaftsanfrage gesendet")
+                    }
+                    
+                    )
+                }
             })
         }
     )}
 
+function frage_freunde(){
+    fetch("http://192.168.22.216:8080/queryfriends", 
+        {method: "POST",
+        credentials: 'include',
+        headers: {"content-type": "application/json"},
+        })
+        .then(function(res){
+            console.log(res)
+                if (res.status == 200){
+                    res.json().then((data) => {
+                        console.log(data);
+                    });
+                } 
+                else {
+                    window.alert("Das hat nichts ergeben")
+                }
+        })
+}
+            
+function queryUsers(data) {
+    tabellenbody.innerHTML = ""
+    for (let userid of data){
+        console.log('userid', userid);
+        queryuser(userid)
+    }
+}
+
+function Freundschaftsanfragen(userid){
+    fetch("http://192.168.22.216:8080/queryuser", 
+        {method: "POST",
+        headers: {"content-type": "application/json"},
+        body: JSON.stringify({"id": userid})}).then(function(res){
+            console.log(res)
+            res.json()
+            .then(function (user){
+                console.log(user)
+                var tr = document.createElement("tr")
+                var button = document.createElement("button")
+                var buttonjsj = "Button"+user.username
+                var buttonjsx = "Button"+user.username
+                tr.innerHTML = "<td>"+user.username+"</td><td>"+user.interests+"</td><td>"+"<button id="+buttonjsj+">Freundschaftsanfrage annehmen</button>"+"</td><td>"+"<button id="+buttonjsx+">Freundschaftsanfrage ablehnen</button>"+"</td>"
+                tabellenanfrage.appendChild(tr)
+                document.getElementById(buttonjsj)
+                document.getElementById(buttonjsx)
+                button = document.getElementById(buttonjs)
+                button2 = document.getElementById(buttonjsx)
+                button.onclick = function (){
+                    console.log(user.username)
+                    fetch("http://192.168.22.216:8080/acceptfriendrequest",
+                    {method: "POST",
+                    headers: {"content-type": "application/json"},
+                    body: JSON.stringify({"id": userid})}).then(function(res){
+                        console.log(res);
+                    })
+                }
+                button2.onclick = function (){
+                    console.log(user.username)
+                    fetch("http://192.168.22.216:8080/denyfriendrequest",
+                    {method: "POST",
+                    headers: {"content-type": "application/json"},
+                    body: JSON.stringify({"id": userid})}).then(function(res){
+                        console.log(res);
+                    })
+                }
+            })
+        }
+    )}
+
+            
+function queryUsers(data) {
+    tabellenbody.innerHTML = ""
+    for (let userid of data){
+        console.log('userid', userid);
+        queryuser(userid)
+    }
+}

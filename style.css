@@ -27,6 +27,10 @@ body {
 h1 {
     text-align: center;
 }
+a {
+    height: auto;
+    width: auto;
+}
 
 .login{
     display: grid;

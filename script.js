@@ -7,12 +7,11 @@ function registration() {
     var pronomen = document.getElementById("pronomen").value
     var interesse = document.getElementById("interessen").value
     if (passValue === confpassValue) {
-        fetch("test.json", 
+        fetch("http://192.168.22.216:8080/signup", 
         {method: "POST",
-        body: JSON.stringify({username: gametag, password: pas, email: email, geburtstag: geburtstag, pronomen: pronomen, interessen: interesse})}).then(function(res){
+        body: JSON.stringify({username: gametag, password: passValue, email: email, geburtstag: geburtstag, pronomen: pronomen, interessen: interesse})}).then(function(res){
             if (res.registriert == true){
                 location.href="/login.html"
-                window.alert("Super!")
             } else {
                 window.alert("Das hat nicht geklappt, versuche es bitte nochmal")
             }
@@ -30,12 +29,13 @@ function verification(event){
     event.preventDefault()
     var ema = document.getElementById("emalogin").value
     var pas = document.getElementById("paslogin").value
-    fetch("/api/test.json", 
+    fetch("http://192.168.22.216:8080/login", 
         {method: "POST",
-        body: JSON.stringify({username: ema, password: pas})}).then(function(res){
+        headers: {"content-type": "application/json"},
+        body: JSON.stringify({"username": ema, "password": pas})}).then(function(res){
             console.log(res)
             res.json().then(function(data){
-                if (data.erfolg == true){
+                if (data.success == true){
                     location.href="/indexa.html"
                 } 
                 else {

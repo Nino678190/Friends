@@ -72,6 +72,7 @@ function anfragetext(event){
 }
 
 function queryUsers(data) {
+    tabellenbody.innerHTML = ""
     for (let userid of data){
         console.log('userid', userid);
         queryuser(userid)
@@ -92,12 +93,10 @@ function queryuser(userid){
             res.json()
             .then(function (user){
                 console.log(user)
-                let tabellename = document.getElementById("usernameTabelle")
-                let tabellepronomen = document.getElementById("pronomenTabelle")
-                let tabelleinteressen = document.getElementById("interessenTabelle")
-                tabellename.innerHTML = user.username;
-                tabellepronomen.innerHTML = user.pronouns;
-                tabelleinteressen.innerHTML = user.interests;
+                let pronouns = user.pronouns ?? "N/A"
+                var tr = document.createElement("tr")
+                tr.innerHTML = "<td>"+user.username+"</td><td>"+pronouns+"</td><td>"+user.interests+"</td>"
+                tabellenbody.appendChild(tr)
             })
         }
     )}

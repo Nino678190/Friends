@@ -97,3 +97,6 @@ header{
     display: flex;
     justify-content: center;
 }
+.closer{
+    font-size: 16;
+}

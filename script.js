@@ -23,9 +23,9 @@ function registration() {
     }
     
 }
-
-document.getElementById("loginform").addEventListener("submit", verification)
-
+if (document.getElementById("loginpage")){
+    document.getElementById("loginform").addEventListener("submit", verification)
+}
 function verification(event){
     event.preventDefault()
     var ema = document.getElementById("emalogin").value
@@ -34,10 +34,13 @@ function verification(event){
         {method: "POST",
         body: JSON.stringify({username: ema, password: pas})}).then(function(res){
             console.log(res)
-            if (res.erfolg == true){
-                location.href="/indexa.html"
-            } else {
-                window.alert("Benutzername und/oder Passwort falsch")
-            }
-    })
-} 
+            res.json().then(function(data){
+                if (data.erfolg == true){
+                    location.href="/indexa.html"
+                } 
+                else {
+                    window.alert("Benutzername und/oder Passwort falsch")
+                }
+            })
+        })
+    } 

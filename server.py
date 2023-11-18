@@ -8,6 +8,8 @@ def success(path):
 
 
 @app.route("/api/<path>", methods=["GET","POST"])
-def api(path):
-    print(request.__dict__)
-    return "",200
+def api(path):#
+    filename='test.json'
+    datei = open(filename,'r')
+    print(datei.read())
+    return send_from_directory(".", filename),200

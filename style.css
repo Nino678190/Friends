@@ -34,11 +34,6 @@ body {
 h1 {
     text-align: center;
 }
-a {
-    height: auto;
-    width: auto;
-    color: rgb(26, 235, 40);
-}
 
 link{
     text-decoration: none;

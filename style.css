@@ -97,7 +97,11 @@ header{
     display: flex;
     justify-content: center;
 }
-.closer{
-    font-size: 10;
-    color: rgb(green)ss;
+closer{
+    font-size: 10px;
+    color: green;
+}
+
+.Überschrift{
+    font-size: 15
 }

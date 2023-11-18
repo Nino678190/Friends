@@ -31,6 +31,7 @@ body {
     padding: 0;
     font-family: "NotoSans";
     position: relative;
+    height: 100%;
 }
 
 h1 {

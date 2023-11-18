@@ -71,8 +71,11 @@ header{
     width: 18.75rem;
  }
 
-    #projektanlegung {
-        display: flex;
-        justify-content: center;
-    
+.projektanlegung {
+    display: flex;
+    justify-content: center;
+}
+
+.submitb{
+    background-color: cyan;
 }

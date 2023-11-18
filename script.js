@@ -9,3 +9,17 @@ function ansValidation() {
         return false;
     }
 }
+
+function verification(){
+    var ema = document.getElementById("emalogin").value
+    var pas = document.getElementById("paslogin").value
+    fetch("/datenbank", 
+        {method: "POST",
+        body: JSON.stringify({username: ema, password: pas})}).then(function(res){
+            if (res.erfolg == true){
+                location.href="/indexa.html"
+            } else {
+                window.alert("Benutzername und/oder Passwort falsch")
+            }
+    })
+} 

@@ -44,6 +44,7 @@ function verification(event){
                     window.alert("Benutzername und/oder Passwort falsch")
                 }
             })
+
 } 
 
 if (document.getElementById("freundesuche")){
@@ -74,5 +75,9 @@ function queryUsers(data) {
     for (var user of data){
         console.log('user', user);
     }
+}
+
+function project_registration(){
+    
 }
 

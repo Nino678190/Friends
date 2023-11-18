@@ -71,11 +71,24 @@ header{
     width: 18.75rem;
  }
 
-.projektanlegung {
+.projektanlegung{
     display: flex;
     justify-content: center;
+    text-align: center;
+    background-image:url("IMG_1258.png");
+    height: 100%;
+    width: 100%;
 }
 
 .submitb{
     background-color: cyan;
 }
+
+.eingabe{
+    display:flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+}
+

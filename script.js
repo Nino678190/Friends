@@ -1,11 +1,11 @@
 function registration() {
-    var passValue = document.getElementById("password").value
-    var confpassValue = document.getElementById("confirmPassword").value
-    var gametag = document.getElementById("gametag").value
-    var email = document.getElementById("email").value
-    var geburtstag = document.getElementById("geburtsdatum").value
-    var pronomen = document.getElementById("pronomen").value
-    var interesse = ["minect","dwdq"]
+    let passValue = document.getElementById("password").value
+    let confpassValue = document.getElementById("confirmPassword").value
+    let gametag = document.getElementById("gametag").value
+    let email = document.getElementById("email").value
+    let geburtstag = document.getElementById("geburtsdatum").value
+    let pronomen = document.getElementById("pronomen").value
+    let interesse = ["minect","dwdq"]
     //document.getElementById("interessen").value
     if (passValue === confpassValue) {
         fetch("http://192.168.22.216:8080/signup", 
@@ -30,8 +30,8 @@ if (document.getElementById("loginpage")){
 }
 function verification(event){
     event.preventDefault()
-    var ema = document.getElementById("emalogin").value
-    var pas = document.getElementById("paslogin").value
+    let ema = document.getElementById("emalogin").value
+    let pas = document.getElementById("paslogin").value
     fetch("http://192.168.22.216:8080/login", 
         {method: "POST",
         headers: {"content-type": "application/json"},
@@ -52,8 +52,8 @@ if (document.getElementById("freundesuche")){
 }
 function anfragetext(event){
     event.preventDefault()
-    var text = document.getElementById("eingabesuche").value
-    fetch("http://192.168.22.216:8080/search", 
+    let text = document.getElementById("eingabesuche").value
+    fetch("http://192.168.22.216:8080/searchuser", 
         {method: "POST",
         headers: {"content-type": "application/json"},
         body: JSON.stringify({"search": text})})
@@ -72,12 +72,33 @@ function anfragetext(event){
 }
 
 function queryUsers(data) {
-    for (var user of data){
-        console.log('user', user);
+    for (let userid of data){
+        console.log('userid', userid);
+        queryuser(userid)
     }
 }
 
 function project_registration(){
     
 }
+
+function queryuser(userid){
+    
+    fetch("http://192.168.22.216:8080/queryuser", 
+        {method: "POST",
+        headers: {"content-type": "application/json"},
+        body: JSON.stringify({"id": userid})}).then(function(res){
+            console.log(res)
+            res.json()
+            .then(function (user){
+                console.log(user)
+                let tabellename = document.getElementById("usernameTabelle")
+                let tabellepronomen = document.getElementById("pronomenTabelle")
+                let tabelleinteressen = document.getElementById("interessenTabelle")
+                tabellename.innerHTML = user.username;
+                tabellepronomen.innerHTML = user.pronouns;
+                tabelleinteressen.innerHTML = user.interests;
+            })
+        }
+    )}
 

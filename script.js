@@ -7,11 +7,12 @@ function registration() {
     var pronomen = document.getElementById("pronomen").value
     var interesse = document.getElementById("interessen").value
     if (passValue === confpassValue) {
-        fetch("/datenbank", 
+        fetch("test.json", 
         {method: "POST",
         body: JSON.stringify({username: gametag, password: pas, email: email, geburtstag: geburtstag, pronomen: pronomen, interessen: interesse})}).then(function(res){
             if (res.registriert == true){
                 location.href="/login.html"
+                window.alert("Super!")
             } else {
                 window.alert("Das hat nicht geklappt, versuche es bitte nochmal")
             }
@@ -23,12 +24,16 @@ function registration() {
     
 }
 
-function verification(){
+document.getElementById("loginform").addEventListener("submit", verification)
+
+function verification(event){
+    event.preventDefault()
     var ema = document.getElementById("emalogin").value
     var pas = document.getElementById("paslogin").value
-    fetch("/datenbank", 
+    fetch("test.json", 
         {method: "POST",
         body: JSON.stringify({username: ema, password: pas})}).then(function(res){
+            console.log(res)
             if (res.erfolg == true){
                 location.href="/indexa.html"
             } else {

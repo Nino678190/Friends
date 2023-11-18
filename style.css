@@ -72,10 +72,11 @@ header{
  }
 
 .projektanlegung{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    background-image:url("IMG_1258.png");
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    grid-column-gap: 3.125rem;
+    grid-row-gap: 1.25rem; 
     height: 100%;
     width: 100%;
 }
@@ -84,11 +85,4 @@ header{
     background-color: cyan;
 }
 
-.eingabe{
-    display:flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    flex-direction: column;
-}
 

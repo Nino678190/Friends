@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="style.css">
         <link rel="shortcut icon" type="image/x-icon" href="IMG_1257.png">
-        <script src="script.js"></script>
         <title>
             Friends-login
         </title>
@@ -15,10 +14,11 @@
             <div><img src="IMG_1257.png" alt="Logo" class="logo"></div>
             <div><a href="signup.html">Registrieren</a></div>
         </header>
-        <form class="login">
+        <form class="login" id="loginform">
             <div><b>Email / Username</b></div><div><input type="email" required placeholder="Email-Adresse/Username" class="regi" id="emalogin"></div>
             <div><b>Passwort</b></div><div><input type="password" required name="password" id="paslogin" placeholder="Passwort" class="regi"></div>
-            <div><input type="submit" value="Login" class="submitb" onclick="verification()"></div>
+            <div><input type="submit" value="Login" class="submitb"></div>
         </form>
+        <script src="script.js"></script>
     </body>
 </html>

@@ -1,0 +1,13 @@
+.login{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    grid-column-gap: 3.125rem;
+    grid-row-gap: 1.25rem; 
+    justify-content: center;
+    align-items: center;
+    color: black;
+    border-radius: .9375rem;
+    margin-left: 18.75rem;
+    margin-right: 18.75rem;
+ }

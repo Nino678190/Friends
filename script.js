@@ -30,7 +30,7 @@ function verification(event){
     event.preventDefault()
     var ema = document.getElementById("emalogin").value
     var pas = document.getElementById("paslogin").value
-    fetch("test.json", 
+    fetch("/api/test.json", 
         {method: "POST",
         body: JSON.stringify({username: ema, password: pas})}).then(function(res){
             console.log(res)

@@ -1,30 +1,42 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" href="style.css">
-        <link rel="shortcut icon" type="image/x-icon" href="IMG_1257.png">
-        <script src="script.js"></script>
-        <title>
-            Friends-Projektanlegung
-        </title>
-    </head>
-    <body>
-        <header>
-            <div><img src="IMG_1257.png" class="logo"></div>
-            <div></div>
-            <div><a href="pros.html">Projektsuche</a></div>
-            <div><a href="einstellung.html">Einstellungen</a></div>
-        </header>
-            <form class="projektanlegung">
-                <div><h2 class="projektanlegung">Projektanlegung</h2></div><div></div>
-                <div><b>Projektname</b></div><div><input type="text" required id="projektname" class="eingabe" placeholder="Projektname"></div>
-                <div><b>Projektbeschreibung</b></div><div><input type="text" required id="projektbeschreibung" class="eingabe" placeholder="Projektbeschreibung"></div>
-                <div><b>Projektleiter</b></div><div><input type="text" required id="projektleiter" class="eingabe" placeholder="Projektleiter"></div> 
-                <div><b>Stichworte</b></div><div><input type="text" id="stichworte" class="eingabe" placeholder="stichworte"></div>
-                <div><b>Foto</b></div><input type="file" accept="image/png, image/jpeg, image/jpg image/heic" multiple5 id="avatar" class="regi">
-                <div><input type="submit"><a href="index.html"></a></div>
-            </form>
-    </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="IMG_1257.png">
+    <script src="script.js"></script>
+    <title>
+        Friends-Projektanlegung
+    </title>
+</head>
+
+<body>
+    <header>
+        <div><img src="IMG_1257.png" class="logo"></div>
+        <div></div>
+        <div><a href="pros.html">Projektsuche</a></div>
+        <div><a href="einstellung.html">Einstellungen</a></div>
+    </header>
+    <div class="centerer">
+
+        <form class="projektanlegung">
+            <div class="eingabe">
+                <h2>Projektanlegung</h2>
+            </div>
+
+            <div class="eingabe"><b>Projektname:</b>
+                <input type="text" required placeholder="Projektname">
+            </div>
+
+            <div class="eingabe"><b>Beschreibung:</b><input type="text" required
+                    placeholder="Projektbeschreibung"></div>
+            <div class="eingabe"><b>Projektleiter:</b><input type="text" required placeholder="Projektleiter"></div>
+            <div class="eingabe"><b>Stichworte:</b><input type="text" required placeholder="Stichworte"></div>
+            <div class="eingabe"><b>Foto</b><input type="file"></div>
+        </form>
+    </div>
+</body>
+
 </html>

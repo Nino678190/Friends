@@ -9,12 +9,18 @@
         background-color: white;
         color: black;
     }
+    :link{
+        color: black;
+    }
 }
 
 @media (prefers-color-scheme:dark){
     body{
         background-color: black;
         color: white;
+    }
+    :link{
+        color: black;
     }
 }
 
@@ -31,6 +37,20 @@ h1 {
 a {
     height: auto;
     width: auto;
+}
+
+link{
+    text-decoration: none;
+
+}
+
+header{
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 50px;
+    display: flex;
+    background-color:#06408d;
+    justify-content: space-between;
 }
 
 .login{

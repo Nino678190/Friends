@@ -9,7 +9,7 @@
         background-color: white;
         color: black;
     }
-    :link{
+    a{
         color: black;
     }
 }
@@ -19,8 +19,8 @@
         background-color: black;
         color: white;
     }
-    :link{
-        color: black;
+    a{
+        color: white;
     }
 }
 
@@ -66,4 +66,8 @@ header{
     border-radius: .9375rem;
     margin-left: 18.75rem;
     margin-right: 18.75rem;
+ }
+
+ .logo{
+    max-height: 50px;
  }

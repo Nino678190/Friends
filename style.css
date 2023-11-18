@@ -41,7 +41,7 @@ h1 {
 header{
     margin-left: 5px;
     margin-right: 5px;
-    height: 200px;
+    height: 50px;
     display: flex;
     background-color:#06408d;
     justify-content: space-between;

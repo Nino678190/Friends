@@ -28,11 +28,13 @@
 }
 
 body {
-    margin: 0;
-    padding: 0;
+    margin: 0%;
+    padding: 0%;
+    padding-bottom: 200px;
     font-family: "NotoSans";
     position: relative;
     height: 100%;
+    min-height: calc(100vh - 200px)
 
 }
 
@@ -105,6 +107,8 @@ footer{
     margin-top: 50px;
     color: green;
     margin-left: 10px;
+    bottom: 0px;
+    position: absolute;
 }
 
 .Überschrift{

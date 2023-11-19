@@ -5,8 +5,7 @@ function registration() {
     let email = document.getElementById("email").value
     let geburtstag = document.getElementById("geburtsdatum").value
     let pronomen = document.getElementById("pronomen").value
-    let interesse = ["minect","dwdq"]
-    //document.getElementById("interessen").value
+    let interesse = document.getElementById("interessen").value
     if (passValue === confpassValue) {
         fetch("http://192.168.22.216:8080/signup", 
         {method: "POST",

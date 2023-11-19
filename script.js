@@ -9,6 +9,7 @@ function registration() {
     if (passValue === confpassValue) {
         fetch("http://192.168.22.216:8080/signup", 
         {method: "POST",
+        credentials:"same-origin",
         headers: {"content-type": "application/json"},
         body: JSON.stringify({username: gametag, password: passValue, email: email, geburtstag: geburtstag, pronomen: pronomen, interests: interesse})}).then(function(res){
             console.log(res)
@@ -33,6 +34,7 @@ function verification(event){
     let pas = document.getElementById("paslogin").value
     fetch("http://192.168.22.216:8080/login", 
         {method: "POST",
+        credentials:"same-origin",
         headers: {"content-type": "application/json"},
         body: JSON.stringify({"username": ema, "password": pas})}).then(function(res){
             console.log(res)
@@ -54,6 +56,7 @@ function anfragetext(event){
     let text = document.getElementById("eingabesuche").value
     fetch("http://192.168.22.216:8080/searchuser", 
         {method: "POST",
+        credentials:"same-origin",
         headers: {"content-type": "application/json"},
         body: JSON.stringify({"search": text})})
         .then(function(res){
@@ -85,6 +88,7 @@ function project_registration(){
 function queryuser(userid){
     fetch("http://192.168.22.216:8080/queryuser", 
         {method: "POST",
+        credentials:"same-origin",
         headers: {"content-type": "application/json"},
         body: JSON.stringify({"id": userid})}).then(function(res){
             console.log(res)
@@ -103,7 +107,7 @@ function queryuser(userid){
                     console.log(user.username)
                     fetch("http://192.168.22.216:8080/requestfriend",
                         {method: "POST",
-                        //credentials: 'include',
+                        credentials:"same-origin",
                         headers: {"content-type": "application/json"},
 
                         body: JSON.stringify({"requested": userid})}).then(function(res){
@@ -146,6 +150,7 @@ function queryUsers_Freunde(data) {
 function Freundschaftsanfragen(userid){
     fetch("http://192.168.22.216:8080/queryuser", 
         {method: "POST",
+        credentials:"same-origin",
         headers: {"content-type": "application/json"},
         body: JSON.stringify({"id": userid})}).then(function(res){
             console.log(res)
@@ -169,6 +174,7 @@ function Freundschaftsanfragen(userid){
                     console.log(user.username)
                     fetch("http://192.168.22.216:8080/acceptfriendrequest",
                     {method: "POST",
+                    credentials:"same-origin",
                     headers: {"content-type": "application/json"},
                     body: JSON.stringify({"requestor": userid})}).then(function(res){
                         console.log(res);
@@ -178,6 +184,7 @@ function Freundschaftsanfragen(userid){
                     console.log(user.username)
                     fetch("http://192.168.22.216:8080/denyfriendrequest",
                     {method: "POST",
+                    credentials:"same-origin",
                     headers: {"content-type": "application/json"},
                     body: JSON.stringify({"requestor": userid})}).then(function(res){
                         console.log(res);
@@ -206,6 +213,7 @@ function veroeffentlichen(event){
     let Projektleitung = document.getElementById("projektleiter")
     fetch("http://192.168.22.216:8080/createproject", 
         {method: "POST",
+        credentials:"same-origin",
         headers: {"content-type": "application/json"},
         body: JSON.stringify({"title": name, "description": description, "projectleader": Projektleitung})}).then(function(res){
             console.log(res)

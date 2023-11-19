@@ -11,7 +11,7 @@ function registration() {
         {method: "POST",
         credentials:"same-origin",
         headers: {"content-type": "application/json"},
-        body: JSON.stringify({username: gametag, password: passValue, email: email, geburtstag: geburtstag, pronomen: pronomen, interests: interesse})}).then(function(res){
+        body: JSON.stringify({username: gametag, password: passValue, email: email, geburtstag: geburtstag, pronomen: pronomen, interests: []})}).then(function(res){
             console.log(res)
             if (res.status == 200){
                 location.href="/login.html"
@@ -210,12 +210,11 @@ function veroeffentlichen(event){
     event.preventDefault()
     let name = document.getElementById("projektname").value
     let description = document.getElementById("Beschreibungprojekt").value
-    let Projektleitung = document.getElementById("projektleiter")
     fetch("http://192.168.22.216:8080/createproject", 
         {method: "POST",
         credentials:"same-origin",
         headers: {"content-type": "application/json"},
-        body: JSON.stringify({"title": name, "description": description, "projectleader": Projektleitung})}).then(function(res){
+        body: JSON.stringify({"title": name, "description": description})}).then(function(res){
             console.log(res)
                 if (res.status == 200){
                     location.href="/pros.html"

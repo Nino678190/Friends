@@ -93,9 +93,9 @@ function queryuser(userid){
             .then(function (user){
                 console.log(user)
                 let pronouns = user.pronouns ?? "N/A"
-                var tr = document.createElement("tr")
-                var button = document.createElement("button")
-                var buttonjs = "Button"+user.username
+                let tr = document.createElement("tr")
+                let button = document.createElement("button")
+                let buttonjs = "Button"+user.username
                 tr.innerHTML = "<td>"+user.username+"</td><td>"+pronouns+"</td><td>"+user.interests+"</td><td>"+"<button id="+buttonjs+">Freundschaftsanfrage</button>"+"</td>"
                 tabellenbody.appendChild(tr)
                 document.getElementById(buttonjs)
@@ -151,31 +151,34 @@ function Freundschaftsanfragen(userid){
             res.json()
             .then(function (user){
                 console.log(user)
-                var tr = document.createElement("tr")
-                var button = document.createElement("button")
-                var buttonjsj = "Button"+user.username
-                var buttonjsx = "Button"+user.username
-                tr.innerHTML = "<td>"+user.username+"</td><td>"+user.interests+"</td><td>"+"<button id="+buttonjsj+">Freundschaftsanfrage annehmen</button>"+"</td><td>"+"<button id="+buttonjsx+">Freundschaftsanfrage ablehnen</button>"+"</td>"
+                let tr = document.createElement("tr")
+                let button_annehmen_id = "Button_annehmen"+user.username
+                let button_ablehnen_id = "Button_ablehnen"+user.username
+
+                tr.innerHTML = "<td>"+user.username+
+                "</td><td>"+user.interests+"</td><td>"+
+                "<button id="+button_annehmen_id+">Freundschaftsanfrage annehmen</button>"+
+                "</td><td>"+"<button id="+button_ablehnen_id+">Freundschaftsanfrage ablehnen</button>"+
+                "</td>"
                 tabellenanfrage.appendChild(tr)
-                document.getElementById(buttonjsj)
-                document.getElementById(buttonjsx)
-                button = document.getElementById(buttonjs)
-                button2 = document.getElementById(buttonjsx)
-                button.onclick = function (){
+
+                button_annehmen = document.getElementById(button_annehmen_id)
+                button_ablehnen = document.getElementById(button_ablehnen_id)
+                button_annehmen.onclick = function (){
                     console.log(user.username)
                     fetch("http://192.168.22.216:8080/acceptfriendrequest",
                     {method: "POST",
                     headers: {"content-type": "application/json"},
-                    body: JSON.stringify({"id": userid})}).then(function(res){
+                    body: JSON.stringify({"requestor": userid})}).then(function(res){
                         console.log(res);
                     })
                 }
-                button2.onclick = function (){
+                button_ablehnen.onclick = function (){
                     console.log(user.username)
                     fetch("http://192.168.22.216:8080/denyfriendrequest",
                     {method: "POST",
                     headers: {"content-type": "application/json"},
-                    body: JSON.stringify({"id": userid})}).then(function(res){
+                    body: JSON.stringify({"requestor": userid})}).then(function(res){
                         console.log(res);
                     })
                 }

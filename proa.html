@@ -12,7 +12,7 @@
     </title>
 </head>
 
-<body>
+<body id="proaseite">
     <header>
         <div><img src="IMG_1257.png" class="logo"></div>
         <div></div>
@@ -29,14 +29,15 @@
             </div>
 
             <div class="eingabe"><b>Projektname:</b>
-                <input type="text" required placeholder="Projektname">
+                <input type="text" required placeholder="Projektname" id="projektname">
             </div>
 
             <div class="eingabe"><b>Beschreibung:</b><input type="text" required
-                    placeholder="Projektbeschreibung"></div>
-            <div class="eingabe"><b>Projektleiter:</b><input type="text" required placeholder="Projektleiter"></div>
+                    placeholder="Projektbeschreibung" id="Beschreibungprojekt"></div>
+            <div class="eingabe"><b>Projektleiter:</b><input type="text" required placeholder="Projektleiter" id="projektleiter"></div>
             <div class="eingabe"><b>Stichworte:</b><input type="text" required placeholder="Stichworte"></div>
-            <div class="eingabe"><b>Foto</b><input type="file"></div>
+            <div class="eingabe"><b>Foto</b><input type="file" accept="image/heic, image/png, image/jpg, image/jpeg" id="projektfotos"></div>
+            <div><input  type="submit" value="Veröffentlichen" id="projektveröffentlichen"></div>
         </form>
     </div>
     <closer>

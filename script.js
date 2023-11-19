@@ -191,3 +191,26 @@ function queryUsers(data) {
         queryuser(userid)
     }
 }
+
+if (document.getElementById("proaseite")){
+    document.getElementById("projektanlegung").addEventListener("submit", veroeffentlichen)
+}
+function veroeffentlichen(event){
+    event.preventDefault()
+    let name = document.getElementById("projektname").value
+    let description = document.getElementById("Beschreibungprojekt").value
+    let Projektleitung = document.getElementById("projektleiter")
+    fetch("http://192.168.22.216:8080/login", 
+        {method: "POST",
+        headers: {"content-type": "application/json"},
+        body: JSON.stringify({"title": name, "description": description, "projectleader": Projektleitung})}).then(function(res){
+            console.log(res)
+                if (res.status == 200){
+                    location.href="/pros.html"
+                } 
+                else {
+                    window.alert("Das hat nicht geklappt. Bitte versuche es erneut!")
+                }
+            })
+
+} 

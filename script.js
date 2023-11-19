@@ -101,12 +101,14 @@ function queryuser(userid){
                 button = document.getElementById(buttonjs)
                 button.onclick = function (){
                     console.log(user.username)
-                    fetch("http://192.168.22.216:8080/queryuser",
-                    {method: "POST",
-                    headers: {"content-type": "application/json"},
-                    body: JSON.stringify({"id": userid})}).then(function(res){
-                        window.alert("Freundschaftsanfrage gesendet")
-                    }
+                    fetch("http://192.168.22.216:8080/requestfriend",
+                        {method: "POST",
+                        //credentials: 'include',
+                        headers: {"content-type": "application/json"},
+
+                        body: JSON.stringify({"requested": userid})}).then(function(res){
+                            window.alert("Freundschaftsanfrage gesendet")
+                        }
                     
                     )
                 }

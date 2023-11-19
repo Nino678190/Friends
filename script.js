@@ -200,7 +200,7 @@ function veroeffentlichen(event){
     let name = document.getElementById("projektname").value
     let description = document.getElementById("Beschreibungprojekt").value
     let Projektleitung = document.getElementById("projektleiter")
-    fetch("http://192.168.22.216:8080/login", 
+    fetch("http://192.168.22.216:8080/createproject", 
         {method: "POST",
         headers: {"content-type": "application/json"},
         body: JSON.stringify({"title": name, "description": description, "projectleader": Projektleitung})}).then(function(res){

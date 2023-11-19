@@ -3,6 +3,7 @@
     src: url(Noto-Sans/NotoSans-Bold.ttf)
 }
 
+
 /*Primär Farbe #06408d*/
 @media (prefers-color-scheme:light){
     body{
@@ -32,6 +33,7 @@ body {
     font-family: "NotoSans";
     position: relative;
     height: 100%;
+
 }
 
 h1 {
@@ -98,7 +100,7 @@ header{
     justify-content: center;
 }
 
-closer{
+footer{
     font-size: 10px;
     margin-top: 50px;
     color: green;

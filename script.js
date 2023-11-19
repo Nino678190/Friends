@@ -115,9 +115,9 @@ function queryuser(userid){
     )}
 
 function frage_freunde(){
-    fetch("http://192.168.22.216:8080/queryfriends", 
+    fetch("http://192.168.22.216:8080/queryfriendrequests", 
         {method: "POST",
-        credentials: 'include',
+        credentials: 'same-origin',
         headers: {"content-type": "application/json"},
         })
         .then(function(res){

@@ -125,7 +125,7 @@ function frage_freunde(){
             console.log(res)
                 if (res.status == 200){
                     res.json().then((data) => {
-                        console.log(data);
+                        queryUsers_Freunde(date);
                     });
                 } 
                 else {
@@ -134,7 +134,7 @@ function frage_freunde(){
         })
 }
             
-function queryUsers(data) {
+function queryUsers_Freunde(data) {
     tabellenbody.innerHTML = ""
     for (let userid of data){
         console.log('userid', userid);
@@ -187,7 +187,7 @@ function Freundschaftsanfragen(userid){
     )}
 
             
-function queryUsers(data) {
+function queryUsers_Anfragen(data) {
     tabellenbody.innerHTML = ""
     for (let userid of data){
         console.log('userid', userid);

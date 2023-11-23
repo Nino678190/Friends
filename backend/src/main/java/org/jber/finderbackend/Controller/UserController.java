@@ -56,7 +56,7 @@ public class UserController {
     @PostMapping("/queryuser")
     @ResponseBody ResponseEntity query_user(@RequestBody IDForm form) {
         Optional<Account> acc = userRepo.findById(form.getId());
-        if(!acc.isEmpty()) {
+        if(acc.isPresent()) {
             acc.get().setPassword(null);
             return ResponseEntity.ok(acc);
         }
@@ -69,7 +69,6 @@ public class UserController {
     }
     @GetMapping("/debug")
     @ResponseBody ResponseEntity debug() {
-        //List<Account> acc = userRepo.findByIsInInterests("programming");
 
         return ResponseEntity.ok(List.of("programming"));
     }

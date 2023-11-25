@@ -1,4 +1,4 @@
-package org.jber.finderbackend.entities;
+package org.jber.friendsbackend.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -1,16 +1,10 @@
-package org.jber.finderbackend.Controller;
+package org.jber.friendsbackend.Controller;
 
-import jakarta.servlet.http.Cookie;
-import jakarta.servlet.http.HttpServletResponse;
-import org.jber.finderbackend.entities.Account;
-import org.jber.finderbackend.entities.FriendRequest;
-import org.jber.finderbackend.entities.Friends;
-import org.jber.finderbackend.entities.Project;
-import org.jber.finderbackend.forms.*;
-import org.jber.finderbackend.repositories.FriendRepository;
-import org.jber.finderbackend.repositories.FriendRequestRepository;
-import org.jber.finderbackend.repositories.ProjectRepository;
-import org.jber.finderbackend.repositories.UserRepository;
+import org.jber.friendsbackend.entities.Account;
+import org.jber.friendsbackend.entities.Project;
+import org.jber.friendsbackend.forms.*;
+import org.jber.friendsbackend.repositories.ProjectRepository;
+import org.jber.friendsbackend.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

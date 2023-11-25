@@ -1,6 +1,6 @@
-package org.jber.finderbackend.repositories;
+package org.jber.friendsbackend.repositories;
 
-import org.jber.finderbackend.entities.Account;
+import org.jber.friendsbackend.entities.Account;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

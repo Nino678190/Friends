@@ -1,4 +1,4 @@
-package org.jber.finderbackend;
+package org.jber.friendsbackend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

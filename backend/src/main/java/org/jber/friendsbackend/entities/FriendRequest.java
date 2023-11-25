@@ -1,4 +1,4 @@
-package org.jber.finderbackend.entities;
+package org.jber.friendsbackend.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,12 +14,13 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Friends {
+public class FriendRequest {
     @Id
     @GeneratedValue
     private Long id;
     @ManyToOne
-    private Account user1;
+    private Account requestor;
     @ManyToOne
-    private Account user2;
+    private Account requested;
+
 }

@@ -1,16 +1,15 @@
-package org.jber.finderbackend.Controller;
+package org.jber.friendsbackend.Controller;
 
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
-import org.jber.finderbackend.entities.*;
-import org.jber.finderbackend.forms.*;
-import org.jber.finderbackend.repositories.*;
+import org.jber.friendsbackend.entities.*;
+import org.jber.friendsbackend.forms.*;
+import org.jber.friendsbackend.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 @CrossOrigin
 @RestController

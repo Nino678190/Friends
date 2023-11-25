@@ -1,7 +1,7 @@
 # Read Me First
 The following was discovered as part of building this project:
 
-* The original package name 'org.jber.finder-backend' is invalid and this project uses 'org.jber.finderbackend' instead.
+* The original package name 'org.jber.finder-backend' is invalid and this project uses 'org.jber.friendsbackend' instead.
 
 # Getting Started
 

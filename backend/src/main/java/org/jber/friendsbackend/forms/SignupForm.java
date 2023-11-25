@@ -1,9 +1,7 @@
-package org.jber.finderbackend.forms;
+package org.jber.friendsbackend.forms;
 
 import lombok.Getter;
-import lombok.Setter;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.List;
 

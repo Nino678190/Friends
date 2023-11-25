@@ -1,11 +1,11 @@
-package org.jber.finderbackend;
+package org.jber.friendsbackend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FinderBackendApplication {
+public class FriendsBackendApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(FinderBackendApplication.class, args);
+		SpringApplication.run(FriendsBackendApplication.class, args);
 	}
 }

@@ -1,4 +1,4 @@
-package org.jber.finderbackend.forms;
+package org.jber.friendsbackend.forms;
 
 import lombok.Getter;
 @Getter

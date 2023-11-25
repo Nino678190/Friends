@@ -6,6 +6,8 @@ function registration() {
     let geburtstag = document.getElementById("geburtsdatum").value
     let pronomen = document.getElementById("pronomen").value
     let interesse = document.getElementById("interessen").value
+    let interesse_arrey = interesse.split(',')
+    let interessen = interesse_arrey ?? ""
     if (passValue === confpassValue) {
         fetch("http://192.168.22.216:8080/signup", 
         {method: "POST",
@@ -96,6 +98,7 @@ function queryuser(userid){
             .then(function (user){
                 console.log(user)
                 let pronouns = user.pronouns ?? "N/A"
+                let interests = user.interests ?? "N/A"
                 let tr = document.createElement("tr")
                 let button = document.createElement("button")
                 let buttonjs = "Button"+user.username
@@ -109,7 +112,6 @@ function queryuser(userid){
                         {method: "POST",
                         credentials:"same-origin",
                         headers: {"content-type": "application/json"},
-
                         body: JSON.stringify({"requested": userid})}).then(function(res){
                             window.alert("Freundschaftsanfrage gesendet")
                         }
@@ -159,7 +161,7 @@ function Freundschaftsanfragen(userid){
                 console.log(user)
                 let tr = document.createElement("tr")
                 let button_annehmen_id = "Button_annehmen"+user.username
-                let button_ablehnen_id = "Button_ablehnen"+user.username
+                let button_ablehnen_id = "Button_ablehnen"+user.usernameablehnen
 
                 tr.innerHTML = "<td>"+user.username+
                 "</td><td>"+user.interests+"</td><td>"+
@@ -175,6 +177,7 @@ function Freundschaftsanfragen(userid){
                     fetch("http://192.168.22.216:8080/acceptfriendrequest",
                     {method: "POST",
                     credentials:"same-origin",
+                    
                     headers: {"content-type": "application/json"},
                     body: JSON.stringify({"requestor": userid})}).then(function(res){
                         console.log(res);
@@ -185,6 +188,7 @@ function Freundschaftsanfragen(userid){
                     fetch("http://192.168.22.216:8080/denyfriendrequest",
                     {method: "POST",
                     credentials:"same-origin",
+                    
                     headers: {"content-type": "application/json"},
                     body: JSON.stringify({"requestor": userid})}).then(function(res){
                         console.log(res);
@@ -210,12 +214,11 @@ function veroeffentlichen(event){
     event.preventDefault()
     let name = document.getElementById("projektname").value
     let description = document.getElementById("Beschreibungprojekt").value
-    let Projektleitung = document.getElementById("projektleiter")
     fetch("http://192.168.22.216:8080/createproject", 
         {method: "POST",
         credentials:"same-origin",
         headers: {"content-type": "application/json"},
-        body: JSON.stringify({"title": name, "description": description, "projectleader": Projektleitung})}).then(function(res){
+        body: JSON.stringify({"title": name, "description": description})}).then(function(res){
             console.log(res)
                 if (res.status == 200){
                     location.href="/pros.html"
